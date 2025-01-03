@@ -2,28 +2,34 @@ name: Run Puppeteer Script at Specific Times
 
 on:
   schedule:
-    # 7:00, 7:15, 7:30, 7:45
-    - cron: '0 0 * * *'
-    - cron: '15 0 * * *' 
-    - cron: '30 0 * * *'
-    - cron: '45 0 * * *'
-    # 8:00, 8:15, 8:30, 8:45
-    - cron: '0 1 * * *'
-    - cron: '15 1 * * *'
-    - cron: '30 1 * * *'
-    - cron: '45 1 * * *'
-    # 9:00, 9:15, 9:30, 9:45
-    - cron: '0 2 * * *'
-    - cron: '15 2 * * *'
-    - cron: '30 2 * * *'
-    - cron: '45 2 * * *'
-    # 10:00, 10:15
-    - cron: '0 3 * * *'
-    - cron: '15 3 * * *'
-    # 13:15
-    - cron: '15 6 * * *'
-    # 19:00
-    - cron: '0 12 * * *'
+    # 7:00, 7:15, 7:30, 7:45 (Asia/Ho_Chi_Minh)
+    - cron: '0 0 * * *'    # 7:00 AM Asia/Ho_Chi_Minh (UTC 0:00)
+    - cron: '15 0 * * *'   # 7:15 AM Asia/Ho_Chi_Minh (UTC 0:15)
+    - cron: '30 0 * * *'   # 7:30 AM Asia/Ho_Chi_Minh (UTC 0:30)
+    - cron: '45 0 * * *'   # 7:45 AM Asia/Ho_Chi_Minh (UTC 0:45)
+
+    # 8:00, 8:15, 8:30, 8:45 (Asia/Ho_Chi_Minh)
+    - cron: '0 1 * * *'    # 8:00 AM Asia/Ho_Chi_Minh (UTC 1:00)
+    - cron: '15 1 * * *'   # 8:15 AM Asia/Ho_Chi_Minh (UTC 1:15)
+    - cron: '30 1 * * *'   # 8:30 AM Asia/Ho_Chi_Minh (UTC 1:30)
+    - cron: '45 1 * * *'   # 8:45 AM Asia/Ho_Chi_Minh (UTC 1:45)
+
+    # 9:00, 9:15, 9:30, 9:45 (Asia/Ho_Chi_Minh)
+    - cron: '0 2 * * *'    # 9:00 AM Asia/Ho_Chi_Minh (UTC 2:00)
+    - cron: '15 2 * * *'   # 9:15 AM Asia/Ho_Chi_Minh (UTC 2:15)
+    - cron: '30 2 * * *'   # 9:30 AM Asia/Ho_Chi_Minh (UTC 2:30)
+    - cron: '45 2 * * *'   # 9:45 AM Asia/Ho_Chi_Minh (UTC 2:45)
+
+    # 10:00, 10:15 (Asia/Ho_Chi_Minh)
+    - cron: '0 3 * * *'    # 10:00 AM Asia/Ho_Chi_Minh (UTC 3:00)
+    - cron: '15 3 * * *'   # 10:15 AM Asia/Ho_Chi_Minh (UTC 3:15)
+
+    # 13:15 (Asia/Ho_Chi_Minh)
+    - cron: '15 6 * * *'   # 13:15 PM Asia/Ho_Chi_Minh (UTC 6:15)
+
+    # 19:00 (Asia/Ho_Chi_Minh)
+    - cron: '0 12 * * *'   # 19:00 PM Asia/Ho_Chi_Minh (UTC 12:00)
+
   workflow_dispatch:
 
 jobs:
@@ -45,6 +51,7 @@ jobs:
         date
         echo "Timezone info:"
         timedatectl
+
     - name: Log scheduled time
       run: |
         echo "Workflow started at: $(date '+%Y-%m-%d %H:%M:%S')"
