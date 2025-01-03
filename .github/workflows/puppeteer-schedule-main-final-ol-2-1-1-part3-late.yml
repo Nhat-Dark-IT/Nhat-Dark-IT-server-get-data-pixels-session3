@@ -39,6 +39,12 @@ jobs:
       TZ: 'Asia/Ho_Chi_Minh'
 
     steps:
+    - name: Check current time and timezone
+      run: |
+        echo "Current date and time on the runner:"
+        date
+        echo "Timezone info:"
+        timedatectl
     - name: Log scheduled time
       run: |
         echo "Workflow started at: $(date '+%Y-%m-%d %H:%M:%S')"
